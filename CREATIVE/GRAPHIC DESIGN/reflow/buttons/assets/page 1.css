@@ -1,0 +1,66 @@
+/* This code is only meant for previewing your Reflow design. */
+.primaryContainer {
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100%;
+    width: 100%;
+}
+
+#box {
+    float: left;
+    height: 28px;
+    margin-left: 7.330957%;
+    margin-top: 143px;
+    clear: none;
+    width: 8.534096%;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.34902) 0px 2px 7px 0px;
+    box-shadow: rgba(0, 0, 0, 0.34902) 0px 2px 7px 0px;
+    background-color: rgb(0, 150, 136);
+}
+
+#text {
+    float: left;
+    font-size: 1em;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-weight: normal;
+    line-height: 1em;
+    margin: 8px 0px 0px 0%;
+    clear: none;
+    min-height: 16px;
+    font-family: verdana;
+    color: rgb(255, 255, 255);
+}
+
+#box1 {
+    float: left;
+    height: 28px;
+    margin-left: 17.066755%;
+    margin-top: 147.625px;
+    clear: none;
+    width: 8.534096%;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.34902) 0px 8px 7px 0px;
+    box-shadow: rgba(0, 0, 0, 0.34902) 0px 8px 7px 0px;
+    display: block;
+    background-color: rgb(0, 150, 136);
+    margin-right: 0%;
+    opacity: 1;
+}
+
+#text1 {
+    float: left;
+    font-size: 1em;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-weight: normal;
+    line-height: 1em;
+    margin: 8px 0px 0px 0%;
+    clear: none;
+    min-height: 16px;
+    font-family: verdana;
+    color: rgb(255, 255, 255);
+}
+
