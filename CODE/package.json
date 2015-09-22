@@ -1,0 +1,16 @@
+{
+  "name": "content_md_app",
+  "version": "1.0.0",
+  "devDependencies": {
+    "gulp": "3.9.0",
+    "gulp-tsd": "0.0.4",
+    "gulp-tslint": "3.3.0-beta",
+    "gulp-sass": "2.0.4",
+    "gulp-autoprefixer": "3.0.1",
+    "es6-promise": "3.0.2",
+    "browser-sync": "2.9.4",
+    "gulp-marked": "1.0.0"
+  },
+  "dependencies": {
+  }
+}

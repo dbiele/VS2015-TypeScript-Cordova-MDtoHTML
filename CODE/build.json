@@ -1,0 +1,11 @@
+{
+     "android": {
+         "release": {
+             "keystore": "D:\\Projects\\KeyStores\\android_release_key.keystore",
+             "storePassword": "xxxx",
+             "alias": "deanB",
+             "password" : "xxxxx",
+             "keystoreType": ""
+         }
+     }
+ }

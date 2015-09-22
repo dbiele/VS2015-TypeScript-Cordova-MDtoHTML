@@ -1,0 +1,42 @@
+@import "../../styles/shadows.scss";
+@import "../../styles/palettes.scss";
+@import "../../styles/default-theme.scss";
+@import "../../styles/variables.scss";
+
+// Standard button sizing.
+$md-button-padding: 0 rem(0.600) !default;
+$md-button-min-width: rem(8) !default;
+$md-button-min-height: rem(3) !default;
+$md-button-margin: rem(0.600) rem(0.800) !default;
+$md-button-line-height: rem(3.60) !default;
+$md-button-border-radius: 3px !default;
+
+/** Styles for all disabled buttons. */
+@mixin md-button-disabled() {
+  color: md-color(gray, disabled);
+  background-color: transparent;
+  cursor: default;
+}
+
+a.button_raised_text {
+  font-size: $md-button-font-size-base;
+  font-family: $font-family;
+  color: white;
+  vertical-align: super;
+  line-height: 1.2;
+  text-align: left;
+  position: absolute;
+  left: 19px;
+  top: 1.1px;
+  z-index: 15;
+}
+
+.button_background_raised {
+  background-color: $md-background;
+  box-shadow: $md-shadow-bottom-z-2;
+  position: absolute;
+  width: $md-button-min-width;
+  height: $md-button-min-height;
+  z-index: 14;
+}
+

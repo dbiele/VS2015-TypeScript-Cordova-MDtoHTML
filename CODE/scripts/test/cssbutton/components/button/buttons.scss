@@ -1,0 +1,99 @@
+@import "../../styles/shadows.scss";
+@import "../../styles/palettes.scss";
+@import "../../styles/default-theme.scss";
+@import "../../styles/variables.scss";
+
+
+// Standard button sizing.
+$md-button-padding: 0 rem(0.600) !default;
+$md-button-min-width: rem(8) !default;
+$md-button-min-height: rem(3) !default;
+$md-button-margin: rem(0.600) rem(0.800) !default;
+$md-button-line-height: rem(3.60) !default;
+$md-button-border-radius: 3px !default;
+
+/*csslint outline-none:false*/
+
+.hidden,
+[hidden] {
+    display: none !important;
+}
+
+/**
+ * Add this class to an image to make it fit within it's fluid parent wrapper while maintaining
+ * aspect ratio.
+ */
+.pure-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+.pure-button {
+    font-family: $font-family;
+    font-size: $md-button-font-size-base;
+    padding: 0.5em 1em;
+    color: #ffffff; /* rgba not supported (IE 8) */
+    color: rgba(255, 255, 255, 1); /* rgba supported */
+    border: none; /*IE9 + everything else*/
+    background-color: $md-background;
+    text-decoration: none;
+    border-radius: 1px;
+    box-shadow: $md-shadow-bottom-z-1;
+}
+
+    .pure-button-hover,
+    .pure-button:hover,
+    .pure-button:focus {
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000',GradientType=0);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0,0,0, 0.05)), to(rgba(0,0,0, 0.10)));
+        background-image: -webkit-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+        background-image: -moz-linear-gradient(top, rgba(0,0,0, 0.05) 0%, rgba(0,0,0, 0.10));
+        background-image: -o-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+        background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+    }
+
+    .pure-button:focus {
+        outline: 0;
+    }
+
+    .pure-button-active,
+    .pure-button:active {
+        box-shadow: $md-shadow-bottom-z-2;
+    }
+
+    .pure-button[disabled],
+    .pure-button-disabled,
+    .pure-button-disabled:hover,
+    .pure-button-disabled:focus,
+    .pure-button-disabled:active {
+        border: none;
+        background-image: none;
+        filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+        filter: alpha(opacity=60);
+        -khtml-opacity: 0.60;
+        -moz-opacity: 0.60;
+        opacity: 0.60;
+        cursor: not-allowed;
+        box-shadow: none;
+    }
+
+.pure-button-hidden {
+    display: none;
+}
+
+/* Firefox: Get rid of the inner focus border */
+.pure-button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+.pure-button-primary,
+.pure-button-selected,
+a.pure-button-primary,
+a.pure-button-selected {
+    background-color: $md-background;
+    box-shadow: $md-shadow-bottom-z-2;
+    color: #fff;
+}

@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "es5",
+    "module": "amd",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "outDir": "../www/scripts/"
+  },
+  "files": [
+    "./index.ts",
+    "./typings/tsd.d.ts"
+  ]
+}

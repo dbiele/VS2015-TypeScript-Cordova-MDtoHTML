@@ -1,0 +1,101 @@
+<h1 id="vs2015_css_pre-post_processing">VS2015_CSS_Pre-Post_Processing</h1>
+<p><img src="readmeimages/note.png" alt=""><strong>Note: The project files are for use with Visual Studio 2015 + Tools for Apache Cordova.</strong></p>
+<p>The purpose of the files are to demonstrate how to use Sass and PostCSS AutoPrefixer using gulp-sass and gulp-autoprefixer.</p>
+<p>In this example, the Gulp automated process simply process the files from <code>scripts\components\materials\components</code> and copies them into <code>www\css</code>.</p>
+<p>To start, download the repository files and open the CSS Pre Post Processor.sln in Visual Studio 2015.</p>
+<p><img src="readmeimages/note.png" alt="">Note: Make sure to install Visual Studio 2015 Tools for Apache Cordova. </p>
+<h2 id="css-preprocessor-and-postprocessor">CSS Preprocessor and Postprocessor</h2>
+<ul>
+<li>Sass will be used for our preprocessor.</li>
+<li>PostCSS will be used for our postprocessor.</li>
+</ul>
+<p>CSS preprocessors take code written in a preprocessor language (example .scss) and convert the code into .css. The output is well formatted, and standard CSS stylesheets.</p>
+<p><strong><em>.scss</em></strong> </p>
+<pre><code class="lang-scss">a {
+    display: flex;
+}
+</code></pre>
+<p><strong><em>Sass converted to .css</em></strong></p>
+<pre><code class="lang-css">a {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+</code></pre>
+<p>CSS postprocessors parse CSS and add vendor prefixes to CSS rules using values from <a href="http://caniuse.com/">Can I Use</a></p>
+<p><strong>More information about Sass</strong>: Click the following link:
+<a href="http://sass-lang.com/">http://sass-lang.com</a></p>
+<h2 id="node-and-package-json">Node and Package.json</h2>
+<p>Both Sass and PostCSS need to be installed.  Visual Studio 2015 uses <code>package.json</code> to automate and simplify the installation process using the NPM package manager for node.</p>
+<p>Add the following NPM packages into the devDependencies object. Use the devDependencies object instead of dependencies object because these modules are being used for development and are not required to run in the App. </p>
+<p><img src="readmeimages/gulp_packagejson.png" alt=""></p>
+<pre><code class="lang-CSSprocessing">{
+  &quot;name&quot;: &quot;CSSPrePostProcessor&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;dependencies&quot;: {
+  },
+  &quot;devDependencies&quot;: {
+    &quot;gulp&quot;: &quot;3.9.0&quot;,
+    &quot;gulp-sass&quot;: &quot;2.0.4&quot;,
+    &quot;gulp-autoprefixer&quot;: &quot;3.0.1&quot;,
+    &quot;es6-promise&quot;: &quot;3.0.2&quot;,
+    &quot;autoprefixer&quot;: &quot;6.0.2&quot;
+  }
+}
+</code></pre>
+<p><img src="readmeimages/note.png" alt=""><em>Note</em>: Use the VS2015 package.json to both install and uninstall npm packages.</p>
+<p>More information about package.json can be found here: <a href="https://docs.npmjs.com/files/package.json">https://docs.npmjs.com/files/package.json</a></p>
+<h2 id="gulp">Gulp</h2>
+<p>The gulpfile.js contains the code to run the CSS pre and post processing.  Use the following code as a starting point.</p>
+<pre><code class="lang-gulpfile.js">var gulp = require(&#39;gulp&#39;);
+var sass = require(&#39;gulp-sass&#39;);
+var prefixer = require(&#39;gulp-autoprefixer&#39;);
+// upgrade to the latest node version or use e6-promise.  Fixes problem with `gulp-postcss &quot;Promise is not defined&quot;`
+require(&#39;es6-promise&#39;).polyfill();
+
+gulp.task(&#39;build.css&#39;, function () {
+    gulp.src(&#39;./scripts/components/materials/components/**/*.scss&#39;)
+    // Guilp-Sass runs the pre processor on the .scss files using Sass.
+    // Gulp-AutoPrefixer post processes the .css files using PostCSS.
+    // CSS and Folder structure is saved to destination folder.
+    .pipe(sass().on(&#39;error&#39;, sass.logError))
+    .pipe(prefixer({
+        browsers: [&#39;last 2 versions&#39;],
+        cascade: false
+    }))
+    .pipe(gulp.dest(&#39;./www/css&#39;));
+});
+</code></pre>
+<ul>
+<li><a href="https://www.npmjs.com/package/gulp-sass">Gulp-Sass information</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-autoprefixer">Gulp-autoprefixer information</a></li>
+</ul>
+<p>##Running Gulp Tasks in the Visual Studio Task Runner</p>
+<p>Run the gulp task by using the Visual Studio 2015 Task Manager window(View &gt; Other Windows &gt; Task Manager Explorer).</p>
+<p>To run the task, select the task and right click
+<img src="readmeimages/gulp_buildcss.png" alt=""></p>
+<p>After running the task, verify there are no errors <code>Process terminated with code 0.</code> and open the destination folder where the .css is being saved.</p>
+<h2 id="license">License</h2>
+<p>Unless otherwise mentioned, the code samples are released under the MIT license.</p>
+<pre><code>The MIT License (MIT)
+
+Dean Biele
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</code></pre>

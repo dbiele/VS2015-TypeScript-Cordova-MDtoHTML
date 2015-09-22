@@ -1,0 +1,5 @@
+@import 'theme-functions.scss';
+@import 'palettes.scss';
+
+$md-primary: md-palette($md-blue, 500, 100, 700, $md-contrast-palettes);
+$md-background: $md_green;
